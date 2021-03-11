@@ -39,7 +39,7 @@ to show a message when a collection is empty:
 A "double-bang" can be used to convert a non-boolean value to a boolean value. For example to
 hide a control when a collection is empty:
 
-“双爆炸”可用于将非布尔值转换为布尔值。例如，当集合为空时隐藏控件：
+`!!`可用于将非布尔值转换为布尔值。例如，当集合为空时隐藏控件：
 
 ```xml
 <Panel>
@@ -53,12 +53,12 @@ For more advanced conversions, Avalonia supports
 [`IValueConverter `](https://docs.microsoft.com/en-gb/dotnet/api/system.windows.data.ivalueconverter?view=netframework-4.7.1)
 the same as other XAML frameworks.
 
-对于更高级的转换，Avalonia支持 IValueConverter 与其他XAML框架相同的功能。
+对于更高级的转换，Avalonia与其他XAML框架一样支持[`IValueConverter `](https://docs.microsoft.com/en-gb/dotnet/api/system.windows.data.ivalueconverter?view=netframework-4.7.1)。
 
 > Note: The `IValueConverter` interface is not available in .NET standard 2.0 so we ship our own,
   in the `Avalonia.Data.Converters` namespace.
 
-> 注意：该IValueConverter接口在.NET standard 2.0中不可用，因此我们在Avalonia.Data.Converters名称空间中提供了自己的接口。
+> 注意：`IValueConverter`接口在.NET standard 2.0中不可用，因此在`Avalonia.Data.Converters`名称空间中提供了自己的接口。
 
 Usage is identical to other XAML frameworks:
 
@@ -91,19 +91,19 @@ Avalonia为常见情况提供了许多内置的值转换器：
 | `ObjectConverters.IsNotNull` | Returns `false` if the input is null |
 | `BoolConverters.And` | A multi-value converter that returns `true` if all inputs are true. |
 
-| Converter | Description |
+| 转换器 | 描述 |
 | ---- | ----------- |
-| `StringConverters.IsNullOrEmpty` | 返回true输入字符串是否为null或为空 |
-| `StringConverters.IsNotNullOrEmpty` | 返回false输入字符串是否为null或为空 |
-| `ObjectConverters.IsNull` | true如果输入为null，则返回 |
-| `ObjectConverters.IsNotNull` | false如果输入为null，则返回 |
-| `BoolConverters.And` | 一个多值转换器，true如果所有输入都为true ，则返回。 |
+| `StringConverters.IsNullOrEmpty` | 如果输入字符串为null或为空则返回`true` |
+| `StringConverters.IsNotNullOrEmpty` | 如果输入字符串是否为null或为空则返回`false` |
+| `ObjectConverters.IsNull` | 如果输入为null，则返回`true` |
+| `ObjectConverters.IsNotNull` | 如果输入为null，则返回`false` |
+| `BoolConverters.And` | 一个多值转换器，如果所有输入都为true，则返回`true`。 |
 
 ### Examples
 
 Hiding a `TextBlock` if the bound text is null or empty:
 
-TextBlock如果绑定的文本为null或为空，则隐藏a ：
+如果绑定的文本为null或为空，则隐藏`TextBlock`：
 
 ```csharp
 <TextBlock Text="{Binding MyText}"
@@ -112,7 +112,7 @@ TextBlock如果绑定的文本为null或为空，则隐藏a ：
 
 Hiding a `ContentControl` if the bound content is null or empty:
 
-ContentControl如果绑定的内容为null或为空，则隐藏a ：
+如果绑定的内容为null或为空，则隐藏`ContentControl`：
 
 ```csharp
 <ContentControl Content="{Binding MyContent}"
