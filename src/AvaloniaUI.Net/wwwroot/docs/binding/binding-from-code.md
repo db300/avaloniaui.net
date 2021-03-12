@@ -32,7 +32,7 @@ subscribe to the property's changes.
 for this guide, but here's an example which uses the returned observable to
 print a message with the changing property values to the console:
 
-IObservable （Reactive Extensions的一部分，或简称rx）在本指南的范围之外，但这是一个示例，该示例使用返回的observable将具有更改的属性值的消息打印到控制台：
+`IObservable`（Reactive Extensions的一部分，或简称rx）超出本指南范围，但这有一个示例，该示例使用返回的observable在控制台打印正在改变的属性值的消息：
 
 ```csharp
     var textBlock = new TextBlock();
@@ -45,7 +45,7 @@ of the property immediately and then push a new value each time the property
 changes. If you don't want the current value, you can use the rx `Skip`
 operator:
 
-订阅返回的observable时，它将立即返回属性的当前值，然后每次属性更改时都推入新值。如果您不希望使用当前值，则可以使用rxSkip 运算符：
+当返回的observable被订阅时，它将立即返回属性的当前值，然后每次属性更改时都推送新值。如果不希望使用当前值，则可以使用rx `Skip`运算符：
 
 ```csharp
     var text = textBlock.GetObservable(TextBlock.TextProperty).Skip(1);
@@ -55,7 +55,7 @@ operator:
 
 You can bind a property to an observable using the `AvaloniaObject.Bind` method:
 
-您可以使用以下AvaloniaObject.Bind方法将属性绑定到可观察对象：
+可以使用`AvaloniaObject.Bind`方法将属性绑定到可观察对象：
 
 ```csharp
 // We use an Rx Subject here so we can push new values using OnNext
@@ -78,13 +78,13 @@ Notice that the `Bind` method returns an `IDisposable` which can be used to term
 If you never call this, then then binding will automatically terminate when the observable finishes
 via `OnCompleted` or `OnError`.
 
-请注意，该Bind方法返回IDisposable，可用于终止绑定。如果您从未调用过此方法，则当可观察到的结束时，通过OnCompleted或绑定将自动终止OnError。
+请注意，`Bind`方法返回`IDisposable`，可用于终止绑定。如果从未调用过此方法，则当可观察的对象通过`OnCompleted`或`OnError`结束时，绑定将自动终止。
 
 ## Setting a binding in an object initializer
 
 It is often useful to set up bindings in object initializers. You can do this using the indexer:
 
-在对象初始化程序中设置绑定通常很有用。您可以使用索引器执行此操作：
+在对象初始化时设置绑定通常很有用。可以使用索引器执行此操作：
 
 ```csharp
 var source = new Subject<string>();
